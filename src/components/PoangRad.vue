@@ -1,9 +1,11 @@
 <script setup>
 import { ref, watch } from 'vue'
 
+//definierar props och score
 const props = defineProps(['vinnare', 'reset'])
 const score = ref({ spelare: 0, dator: 0 })
 
+//övervakar props för att uppdatera poängen
 watch(props, () => {
   if (props.vinnare == 'spelare') {
     score.value.spelare++
@@ -12,6 +14,7 @@ watch(props, () => {
   }
 })
 
+//återställer poängen när reset-prop ändras
 watch(
   () => props.reset,
   () => {
@@ -25,14 +28,21 @@ watch(
 <template>
   <div class="score">
     <p>
-      <span id="spelare">
+      <span id="spelare" class="spelare">
         {{ score.spelare }}
       </span>
       <span> - </span>
-      <span id="dator">
+      <span id="dator" class="dator">
         {{ score.dator }}
       </span>
     </p>
   </div>
 </template>
-<style scoped></style>
+<style scoped>
+.spelare {
+  color: rgb(162, 255, 23);
+}
+.dator {
+  color: rgb(3, 225, 225);
+}
+</style>

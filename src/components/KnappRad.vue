@@ -1,11 +1,13 @@
 <script setup>
 import { watch } from 'vue'
+
 //tar bilderna som finns i components
 import artImg from '@/components/art.png'
 import eendImg from '@/components/eend.png'
 import paseImg from '@/components/pase.png'
 import saxImg from '@/components/sax.png'
 import stenImg from '@/components/sten.png'
+
 //tar ljud filerna som finns i components
 import winSound from './win.mp3'
 import loseSound from './lose.mp3'
@@ -49,8 +51,9 @@ function spelarval(e) {
   if (spelarIndex === datorIndex) {
     //oavgjort -> inget ljud
   } else if (
-    (spelarIndex % 2 === datorIndex % 2 && spelarIndex > datorIndex) ||
-    (spelarIndex % 2 !== datorIndex % 2 && spelarIndex < datorIndex)
+    // Vinnande logik: Spelare vinner om:
+    (spelarIndex % 2 === datorIndex % 2 && spelarIndex > datorIndex) || //Båda valen är jämna/udda OCH spelarens val är högre
+    (spelarIndex % 2 !== datorIndex % 2 && spelarIndex < datorIndex) //Ett val är jämnt och ett udda OCH spelarens val är lägre
   ) {
     winAudio.play() //winnar ljudet
   } else {
@@ -106,10 +109,10 @@ watch(
 
 <style scoped>
 button {
-  padding: 1.2em 2.4em;
+  padding: 1.8em 1.8em;
   font-size: 1.2em;
-  background-color: #f0f0f0;
-  border: 1px solid #cccc;
+  background-color: #ffffff;
+  border: 5px solid #ffffff;
   border-radius: 100px;
   cursor: pointer;
   display: flex;
@@ -130,15 +133,15 @@ img {
 }
 
 button.spelarval {
-  background-color: greenyellow;
+  background-color: rgb(162, 255, 23);
 }
 
 button.datorval {
-  background-color: cyan;
+  background-color: rgb(12, 253, 253);
 }
 
 button.spelarval.datorval {
-  background-color: yellow;
+  background-color: rgb(234, 255, 0);
 }
 /* animationer för att knapparna ska wiggla */
 @keyframes wiggle {
@@ -146,13 +149,13 @@ button.spelarval.datorval {
     transform: rotate(0deg);
   }
   25% {
-    transform: rotate(-10deg);
+    transform: rotate(-20deg);
   }
   50% {
     transform: rotate(0deg);
   }
   75% {
-    transform: rotate(10deg);
+    transform: rotate(20deg);
   }
   100% {
     transform: rotate(0deg);
@@ -160,6 +163,6 @@ button.spelarval.datorval {
 }
 
 button:hover {
-  animation: wiggle 0.35s ease-in-out infinite;
+  animation: wiggle 0.45s ease-in-out infinite;
 }
 </style>

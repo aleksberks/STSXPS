@@ -36,7 +36,7 @@ function raknaPoang(v) {
     <ResultatRad :valdaKnappar="resultat" @vinnare="raknaPoang" :reset="reset" />
     <PoangRad :vinnare="vinnare" :reset="reset" />
     <div class="score">
-      <button id="nolla" @click="reset = true">Nollställ</button>
+      <button id="nolla" @click="reset = true">Börja Om</button>
     </div>
   </main>
 </template>
@@ -45,8 +45,9 @@ function raknaPoang(v) {
 button {
   padding: 0.6em 1.2em;
   font-size: 1.2em;
-  background-color: #f0f0f0;
-  border: 1px solid #cccc;
+  color: white;
+  background-color: #ff0000;
+  border: 1px solid #000000cc;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -75,7 +76,7 @@ header {
 
 #nolla {
   margin-top: 2em;
-  padding: 0.5em 1em;
+  padding: 1em 2em;
   font-size: 1em;
   border-radius: 100px;
   font-family: fantasy;
