@@ -2,11 +2,11 @@
 import { watch } from 'vue'
 
 //tar bilderna som finns i components
-import artImg from '@/components/art.png'
-import eendImg from '@/components/eend.png'
-import paseImg from '@/components/pase.png'
-import saxImg from '@/components/sax.png'
-import stenImg from '@/components/sten.png'
+import artImg from '@/components/images/art.png'
+import eendImg from '@/components/images/eend.png'
+import paseImg from '@/components/images/pase.png'
+import saxImg from '@/components/images/sax.png'
+import stenImg from '@/components/images/sten.png'
 
 //tar ljud filerna som finns i components
 import winSound from './win.mp3'
