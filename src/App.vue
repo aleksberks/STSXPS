@@ -1,14 +1,17 @@
 <script setup>
 import { ref } from 'vue'
+//importerar komponenter som används i appen
 import KnappRad from './components/KnappRad.vue'
 import ResultatRad from './components/ResultatRad.vue'
 import PoangRad from './components/PoangRad.vue'
 
+//skapar reaktiva variabler för spelets tillstånd
 const resultat = ref({})
 const knappar = ref(['sten', 'sax', 'pase', 'eend', 'art'])
 const vinnare = ref('')
 const reset = ref(true)
 
+//hanterar när knappar väljs och hittar vinnaren
 function hittaVinnare(valdaKnappar) {
   vinnare.value = ''
   reset.value = false
@@ -17,6 +20,7 @@ function hittaVinnare(valdaKnappar) {
   resultat.value = { spelare: spelare, dator: dator }
 }
 
+//uppdaterar poängställningen när en vinnare har hittats
 function raknaPoang(v) {
   vinnare.value = v
 }
@@ -24,7 +28,7 @@ function raknaPoang(v) {
 
 <template>
   <header>
-    <h1>Sten, sax, påse, Cool Eend & Art!</h1>
+    <h1>Sten, sax, påse, coole eend & art!</h1>
   </header>
 
   <main>
@@ -71,7 +75,13 @@ header {
 
 #nolla {
   margin-top: 2em;
-  padding: 0.3em 0.6em;
-  font-size: 0.8em;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border-radius: 100px;
+  font-family: fantasy;
+}
+
+h1 {
+  font-family: fantasy;
 }
 </style>

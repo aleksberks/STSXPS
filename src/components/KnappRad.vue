@@ -1,10 +1,12 @@
 <script setup>
 import { watch } from 'vue'
+//tar bilderna som finns i components
 import artImg from '@/components/art.png'
 import eendImg from '@/components/eend.png'
 import paseImg from '@/components/pase.png'
 import saxImg from '@/components/sax.png'
 import stenImg from '@/components/sten.png'
+//tar ljud filerna som finns i components
 import winSound from './win.mp3'
 import loseSound from './lose.mp3'
 
@@ -55,20 +57,20 @@ function spelarval(e) {
     loseAudio.play() //förlorar ljudet
   }
 
-  // Skicka valen till förälderkomponenten
+  //skickar valen till förälder komponenten
   emit('valdaKnappar', { spelare: clickedButton.querySelector('img').alt, dator: datornsVal })
 }
 
-// Hantera datorns val
+//hanterar datorns val
 function datorval() {
-  // Slumpa fram datorns val
+  //slumpar fram datorns val
   let val = Math.floor(Math.random() * props.knappar.length)
   let buttons = document.getElementsByClassName('alternativ')
-  // Ta bort tidigare datorval-markering
+  //tar bort tidigare datorval-markering
   for (let b of buttons) {
     b.classList.remove('datorval')
     b.title = ''
-    // Markera datorns nya val
+    //markerar datorns nya val
     if (b.querySelector('img').alt == props.knappar[val]) {
       b.classList.add('datorval')
       b.title = 'Datorns val'
@@ -77,12 +79,12 @@ function datorval() {
   return props.knappar[val]
 }
 
-// Återställ spelet när reset-prop ändras
+//återställer spelet när reset-prop ändras
 watch(
   () => props.reset,
   () => {
     if (props.reset) {
-      // Ta bort alla markeringar
+      //tar bort alla markeringar
       let buttons = document.getElementsByClassName('alternativ')
       for (let b of buttons) {
         b.classList.remove('spelarval')
@@ -137,5 +139,27 @@ button.datorval {
 
 button.spelarval.datorval {
   background-color: yellow;
+}
+/* animationer för att knapparna ska wiggla */
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+button:hover {
+  animation: wiggle 0.35s ease-in-out infinite;
 }
 </style>
