@@ -5,7 +5,7 @@ import ResultatRad from './components/ResultatRad.vue'
 import PoangRad from './components/PoangRad.vue'
 
 const resultat = ref({})
-const knappar = ref(['Sten', 'Sax', 'Påse', 'Lizard', 'Spock'])
+const knappar = ref(['sten', 'sax', 'pase', 'eend', 'art'])
 const vinnare = ref('')
 const reset = ref(true)
 
@@ -24,7 +24,7 @@ function raknaPoang(v) {
 
 <template>
   <header>
-    <h1>Sten, sax, påse!</h1>
+    <h1>Sten, sax, påse, Cool Eend & Art!</h1>
   </header>
 
   <main>
