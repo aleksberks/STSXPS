@@ -7,7 +7,17 @@ import PoangRad from './components/PoangRad.vue'
 
 //skapar reaktiva variabler för spelets tillstånd
 const resultat = ref({})
-const knappar = ref(['sten', 'sax', 'pase', 'eend', 'art', 'bendeen', 'alice'])
+const knappar = ref([
+  'sten',
+  'sax',
+  'pase',
+  'eend',
+  'art',
+  'bendeen',
+  'alice',
+  'markiplier',
+  'chicwich'
+])
 const vinnare = ref('')
 const reset = ref(true)
 
@@ -28,7 +38,7 @@ function raknaPoang(v) {
 
 <template>
   <header>
-    <h1>Sten, sax, påse, coole eend, art, ben deen & patricia!</h1>
+    <h1>Sten, sax, påse, coole eend, art, ben deen, patricia, markiplier and chicken sandwich!</h1>
   </header>
 
   <main>

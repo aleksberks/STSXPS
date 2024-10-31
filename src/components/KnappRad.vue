@@ -2,6 +2,8 @@
 import { watch } from 'vue'
 
 //tar bilderna som finns i components
+import chicwichImg from '@/components/images/chicwich.png'
+import markImg from '@/components/images/markiplier.png'
 import aliceImg from '@/components/images/alice.png'
 import bendeenImg from '@/components/images/bendeen.png'
 import artImg from '@/components/images/art.png'
@@ -19,6 +21,8 @@ console.log('Image paths:', { artImg, eendImg, paseImg, saxImg, stenImg })
 
 //kopplar ihop bildnamn med bildfiler
 const imageMap = {
+  chicwich: chicwichImg,
+  markiplier: markImg,
   alice: aliceImg,
   bendeen: bendeenImg,
   art: artImg,
@@ -134,6 +138,35 @@ img {
   display: flex;
   justify-content: center;
   gap: 0.6em;
+  flex-wrap: wrap;
+  padding: 1rem;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  img {
+    width: 70px;
+    height: 70px;
+  }
+
+  button {
+    padding: 1em 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .knapprad {
+    gap: 0.4em;
+  }
+
+  button {
+    padding: 0.8em 0.8em;
+  }
 }
 
 button.spelarval {
