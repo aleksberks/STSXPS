@@ -28,13 +28,9 @@ watch(
 <template>
   <div class="score">
     <p>
-      <span id="spelare" class="spelare">
-        {{ score.spelare }}
-      </span>
-      <span> - </span>
-      <span id="dator" class="dator">
-        {{ score.dator }}
-      </span>
+      <span id="spelare" class="spelare"> 😐 {{ score.spelare }} </span>
+      <span> ― </span>
+      <span id="dator" class="dator"> {{ score.dator }} 💻 </span>
     </p>
   </div>
 </template>

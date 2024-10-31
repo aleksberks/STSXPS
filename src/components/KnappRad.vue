@@ -2,6 +2,8 @@
 import { watch } from 'vue'
 
 //tar bilderna som finns i components
+import aliceImg from '@/components/images/alice.png'
+import bendeenImg from '@/components/images/bendeen.png'
 import artImg from '@/components/images/art.png'
 import eendImg from '@/components/images/eend.png'
 import paseImg from '@/components/images/pase.png'
@@ -17,6 +19,8 @@ console.log('Image paths:', { artImg, eendImg, paseImg, saxImg, stenImg })
 
 //kopplar ihop bildnamn med bildfiler
 const imageMap = {
+  alice: aliceImg,
+  bendeen: bendeenImg,
   art: artImg,
   eend: eendImg,
   pase: paseImg,
@@ -60,7 +64,7 @@ function spelarval(e) {
     loseAudio.play() //förlorar ljudet
   }
 
-  //skickar valen till förälder komponenten
+  //skickar valen till förälder komponenten (app.vue)
   emit('valdaKnappar', { spelare: clickedButton.querySelector('img').alt, dator: datornsVal })
 }
 
@@ -109,7 +113,7 @@ watch(
 
 <style scoped>
 button {
-  padding: 1.8em 1.8em;
+  padding: 1.3em 1.3em;
   font-size: 1.2em;
   background-color: #ffffff;
   border: 5px solid #ffffff;
