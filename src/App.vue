@@ -92,6 +92,11 @@ header {
   font-family: fantasy;
 }
 
+#nolla:hover {
+  background-color: #cc0000;
+  transition: background-color 0.2s ease;
+}
+
 h1 {
   font-family: fantasy;
 }
